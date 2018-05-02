@@ -19,12 +19,18 @@ namespace BookStoreV2.Controllers
             return View();
         }
 
+        public ViewResult SomeMethod()
+        {
+            ViewData["Head"] = "Hello world!";
+            return View("SomeMethod");
+        }
        [HttpGet]
        public ActionResult Buy(int id)
        {
             ViewBag.BookId = id;
             return View();
        }
+
 
 
         [HttpPost]
