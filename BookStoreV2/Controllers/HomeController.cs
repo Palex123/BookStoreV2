@@ -16,12 +16,21 @@ namespace BookStoreV2.Controllers
             IEnumerable<Book> books = db.Books;
 
             ViewBag.Books = books;
-            return View();
+            return View("View", db.Books);
         }
 
-        public ViewResult SomeMethod()
+        public ActionResult Edit(int Id)
+        {
+            IEnumerable<Book> book = db.Books.Where(x => x.Id == Id);
+            return View("Edit", book);
+        }
+        public ActionResult SomeMethod()
         {
             ViewData["Head"] = "Hello world!";
+            if(ViewData["Head"].ToString()=="Hello world!")
+            {
+                return new HttpUnauthorizedResult();
+            }
             return View("SomeMethod");
         }
        [HttpGet]
@@ -55,5 +64,7 @@ namespace BookStoreV2.Controllers
         {
             return new HtmlResult("<h2>Hellp world!</h2>");
         }
+
+
     }
 }
