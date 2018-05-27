@@ -11,15 +11,21 @@ namespace BookStoreV2.Controllers
     public class HomeController : Controller
     {
         BookContext db = new BookContext();
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             IEnumerable<Book> books = db.Books;
 
             ViewBag.Books = books;
             return View("View", db.Books);
-        }
+        }*/
+        public ActionResult Index()
+        {
+            IEnumerable<Book> books = db.Books;
 
-        public ActionResult Edit(int Id)
+        ViewBag.Books = books;
+            return View("Index", db.Books);
+        }
+    public ActionResult Edit(int Id)
         {
             IEnumerable<Book> book = db.Books.Where(x => x.Id == Id);
             return View("Edit", book);
@@ -27,10 +33,10 @@ namespace BookStoreV2.Controllers
         public ActionResult SomeMethod()
         {
             ViewData["Head"] = "Hello world!";
-            if(ViewData["Head"].ToString()=="Hello world!")
+           /* if(ViewData["Head"].ToString()=="Hello world!")
             {
                 return new HttpUnauthorizedResult();
-            }
+            }*/
             return View("SomeMethod");
         }
        [HttpGet]
@@ -53,11 +59,11 @@ namespace BookStoreV2.Controllers
 
         }
 
-        public string Square(int a, int h)
+        public string Square(int a, int b, double y)
         {
-            double s = a * h / 2.0;
-            return "<h2>Площадь треугольника с основанием " + a +
-                    " и высотой " + h + " равна " + s + "</h2>";
+            double s = (a * b * Math.Sin(y)) * 0.5;
+            return "<h2>Площадь треугольника сторона 1 " + a +
+                    " сторона 2 " + b + " и углом между ними " +y+ " равна " + s + "</h2>";
         }
 
         public ActionResult GetHtml()
