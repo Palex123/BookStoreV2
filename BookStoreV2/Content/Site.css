@@ -1,6 +1,14 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 13px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    padding-left: 40px;
+}
+
+html {
+    height:100%;
+    background: linear-gradient(to top, #039, #e8edff);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +29,56 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+nav {
+    display: block;
+}
+
+.menu {
+    padding-left: 10px;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu a:hover {
+    color: red;
+}
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    background: white;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 0 auto 20px;
+}
+
+th {
+    font-size: 14px;
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    color: #669;
+    padding: 9px 8px;
+}
+
+tr:hover td {
+    background: #e8edff;
+}
+
+input {
+    width: 150px;
 }
